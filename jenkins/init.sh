@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # mount jenkins-backup volume
+sudo mkdir -p /data
 sudo mount /dev/xvdb /data
 sudo cp /etc/fstab /etc/fstab.origin
 sudo (cat /etc/fstab ; echo "/dev/xvdb       /data   ext4    defaults,nofail 0   0") > /etc/fstab
