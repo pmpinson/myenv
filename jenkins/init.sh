@@ -14,7 +14,7 @@ sudo service docker start
 # build jenkins image
 sudo wget https://raw.githubusercontent.com/pmpinson/dockerfile/master/jenkins/1.580.2/Dockerfile
 sudo docker build --tag=pmpinson/jenkins:1.580.2 .
-docker build --tag=pmpinson/jenkins .
+sudo docker build --tag=pmpinson/jenkins .
 
 # launch jenkins
-sudo docker run -d --name dev-jenkins-server -p 9004:8080 -v /data/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock pmpinson/jenkins
+sudo docker run -d --name dev-jenkins-server -p 9004:8080 -v /data/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --restart=always pmpinson/jenkins
