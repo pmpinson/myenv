@@ -34,6 +34,6 @@ by default container is not available
 
 build the image [here](https://github.com/pmpinson/dockerfile/tree/master/jenkins)
 
-`docker run -d --name dev-jenkins-server -p 9004:8080 -v /data/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock pmpinson/jenkins`
+`docker run -d --name dev-jenkins-server -p 9004:8080 -v /data/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --restart=always pmpinson/jenkins`
 
 access to application by [http://xxx:9004](http://xxx:9002)
