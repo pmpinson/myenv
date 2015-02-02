@@ -28,7 +28,7 @@ by default container is not available
 
 ## mysql server
 
-`docker run -d --name dev-sonarqube-mysql -p 9001:3306 -e MYSQL_ROOT_PASSWORD=$$$$ -e MYSQL_DATABASE=sonarqube mysql`
+`docker run -d --name dev-sonarqube-mysql -p 9001:3306 -e MYSQL_ROOT_PASSWORD=$$$$ -e MYSQL_DATABASE=sonarqube --restart=always mysql`
 
 access locally only
 
@@ -38,6 +38,6 @@ access locally only
 
 build the image [here](https://github.com/pmpinson/dockerfile/tree/master/sonarqube)
 
-`docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db pmpinson/sonarqube`
+`docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db --restart=always pmpinson/sonarqube`
 
 access to application by [http://xxx:9002](http://xxx:9002)
