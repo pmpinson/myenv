@@ -21,4 +21,4 @@ sudo docker build --tag=pmpinson/sonarqube .
 sudo docker run -d --name dev-sonarqube-mysql -e MYSQL_ROOT_PASSWORD=$$$$ -e MYSQL_DATABASE=sonarqube -v /data/mysql:/var/lib/mysql --restart=always mysql
 
 # launch sonarqube
-sudo docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db -v /data/sonarqube/conf:/app/sonarqube/conf -v /data/sonarqube/logs:/app/sonarqube/logs -v /data/sonarqube/plugins:/app/sonarqube/extensions/plugins -v /data/sonarqube/jdbc-driver:/app/sonarqube/extensions/jdbc-driver --restart=always pmpinson/sonarqube
+sudo docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db -v /data/sonarqube/logs:/app/sonarqube/logs -v /data/sonarqube/plugins:/app/sonarqube/extensions/plugins -v /data/sonarqube/jdbc-driver:/app/sonarqube/extensions/jdbc-driver --restart=always pmpinson/sonarqube
