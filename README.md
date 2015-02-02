@@ -14,4 +14,4 @@ access to application by [http://xxx:9002](http://xxx:9002)
 
 deploy a jenkins build server to auto construct projects. [Go here](jenkins)
 
-access to application by [http://xxx:9002](http://xxx:9004)
+access to application by [http://xxx:9004](http://xxx:9004)
