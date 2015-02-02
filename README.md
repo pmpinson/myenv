@@ -40,6 +40,12 @@ access to application by [http://xxx:9002](http://xxx:9002)
 
 deploy on aws
 
+image : Amazon Linux AMI 2014.09.2 (HVM) - ami-146e2a7c
+
+volume :
+* 8g : jenkins (system), autoterminate
+* 6g : jenkins-backup
+
 dns : ** **
 
 exposed traffic only http on **9003** and **9004**
