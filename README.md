@@ -6,36 +6,12 @@ my environnement use
 
 # sonarqube
 
-deploy on aws
-
-dns : ** **
-
-exposed traffic only http on **9000** and **9002**
-
-by default server not available
-
-## docker ui tool
-
-`docker run -d --name dev-dockerui -p 9000:9000 --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui`
-
-access to application by [http://xxx:9000](http://xxx:9000)
-
-by default container is not available
-
-## mysql server
-
-`docker run -d --name dev-sonarqube-mysql -p 9001:3306 -e MYSQL_ROOT_PASSWORD=$$$$ -e MYSQL_DATABASE=sonarqube mysql`
-
-access locally only
-
-`docker run -it --link dev-sonarqube-mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'`
-
-## sonarqube server
-
-`docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db pmpinson/sonarqube`
+deploy a sonarqube quality server to analyze projects. [Go here](sonarqube)
 
 access to application by [http://xxx:9002](http://xxx:9002)
 
 # jenkins
 
-deploy a jenkins build server to auto construct project. [Go here](jenkins)
+deploy a jenkins build server to auto construct projects. [Go here](jenkins)
+
+access to application by [http://xxx:9002](http://xxx:9004)
