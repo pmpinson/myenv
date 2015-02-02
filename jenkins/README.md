@@ -18,7 +18,7 @@ by default server not available
 
 use init.sh script
 
-wget https://raw.githubusercontent.com/pmpinson/myenv/master/jenkins/init.sh && chmod u+x init.sh && sh init.sh
+`wget https://raw.githubusercontent.com/pmpinson/myenv/master/jenkins/init.sh && chmod u+x init.sh && sh init.sh`
 
 # containers
 
