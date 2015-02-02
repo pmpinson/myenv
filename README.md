@@ -56,7 +56,7 @@ by default container is not available
 
 ## jenkins server
 
-build the image [here](https://github.com/pmpinson/dockerfile/jenkins)
+build the image [here](..//dockerfile)
 
 `docker run -d --name dev-jenkins-server -p 9004:8080 -v /data/jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock pmpinson/jenkins`
 
