@@ -35,3 +35,7 @@ access locally only
 `docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db pmpinson/sonarqube`
 
 access to application by [http://xxx:9002](http://xxx:9002)
+
+# jenkins
+
+deploy a jenkins build server to auto construct project. [Go here](jenkins)
