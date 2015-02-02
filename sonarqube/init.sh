@@ -1,26 +1,24 @@
 #!/bin/sh
 
-sudo -i
-
-
 # mount sonarqube-backup volume
-mount /dev/xvdb /data
-cp /etc/fstab /etc/fstab.origin
-(cat /etc/fstab ; echo "/dev/xvdb       /data   ext4    defaults,nofail 0   0") > /etc/fstab
+sudo mkdir -p /data
+sudo mount /dev/xvdb /data
+sudo sh -c '(sudo cat /etc/fstab ; echo "/dev/xvdb       /data   ext4    defaults,nofail 0   0") > /etc/fstab.new'
+sudo mv /etc/fstab /etc/fstab.origin
+sudo mv /etc/fstab.new /etc/fstab
 
 # install docker
-yum install -y docker
-service docker start
+sudo yum install -y docker
+sudo service docker start
 
 # build sonarqube image
-wget https://raw.githubusercontent.com/pmpinson/dockerfile/master/sonarqube/5.0/Dockerfile
-docker build --tag=pmpinson/sonarqube:5.0 . && docker build --tag=pmpinson/sonarqube .
+sudo wget https://raw.githubusercontent.com/pmpinson/dockerfile/master/sonarqube/5.0/Dockerfile
+sudo docker build --tag=pmpinson/sonarqube:5.0 .
+sudo docker build --tag=pmpinson/sonarqube .
 
 # launch mysqlcontainer
 #-p 9001:3306
-docker run -d --name dev-sonarqube-mysql -e MYSQL_ROOT_PASSWORD=$$$$ -e MYSQL_DATABASE=sonarqube mysql
+sudo docker run -d --name dev-sonarqube-mysql -e MYSQL_ROOT_PASSWORD=$$$$ -e MYSQL_DATABASE=sonarqube mysql
 
 # launch sonarqube
-docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db pmpinson/sonarqube
-
-exit
+sudo docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db --restart=always pmpinson/sonarqube
