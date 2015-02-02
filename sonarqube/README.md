@@ -36,7 +36,7 @@ access locally only
 
 ## sonarqube server
 
-build the image [here](https://github.com/pmpinson/dockerfile/tree/master/sonar)
+build the image [here](https://github.com/pmpinson/dockerfile/tree/master/sonarqube)
 
 `docker run -d --name dev-sonarqube-server -p 9002:9000 --link dev-sonarqube-mysql:db pmpinson/sonarqube`
 
