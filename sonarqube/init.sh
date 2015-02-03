@@ -12,8 +12,8 @@ sudo yum install -y docker
 sudo service docker start
 
 # build sonarqube image
-sudo wget https://raw.githubusercontent.com/pmpinson/dockerfile/master/sonarqube/5.0/Dockerfile
-sudo docker build --tag=pmpinson/sonarqube:5.0 .
+sudo wget https://raw.githubusercontent.com/pmpinson/dockerfile/master/sonarqube/4.5.2/Dockerfile
+sudo docker build --tag=pmpinson/sonarqube:4.5.2 .
 sudo docker build --tag=pmpinson/sonarqube .
 
 # launch mysqlcontainer
